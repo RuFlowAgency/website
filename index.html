@@ -18,26 +18,21 @@
       --ink-800: #101018;
       --ink-700: #16161f;
       --ink-600: #1e1e2a;
-
       --violet: #8b5cf6;
       --purple: #a855f7;
       --blue:   #3b82f6;
       --cyan:   #22d3ee;
-
       --slate-300: #cbd5e1;
       --slate-400: #94a3b8;
       --slate-500: #64748b;
       --slate-600: #475569;
-
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
       --radius-xl: 24px;
       --radius-full: 9999px;
-
       --font-body: 'Manrope', sans-serif;
       --font-display: 'Unbounded', sans-serif;
-
       --shadow-glow-violet: 0 0 32px -8px rgba(139, 92, 246, 0.7);
       --easing: cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -61,626 +56,780 @@
     ::selection { background: rgba(139, 92, 246, 0.4); color: #fff; }
 
     /* ============ 2. Общие утилиты ============ */
-    .container {
-      width: 100%;
-      max-width: 80rem;
-      margin: 0 auto;
-      padding: 0 1.25rem;
-    }
-    @media (min-width: 640px) {
-      .container { padding: 0 2rem; }
-    }
+    .container { width: 100%; max-width: 80rem; margin: 0 auto; padding: 0 1.25rem; }
+    @media (min-width: 640px) { .container { padding: 0 2rem; } }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.375rem 1rem;
-      border-radius: var(--radius-full);
-      border: 1px solid rgba(139, 92, 246, 0.25);
-      background: rgba(139, 92, 246, 0.1);
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--violet);
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 1rem;
+      border-radius: var(--radius-full); border: 1px solid rgba(139, 92, 246, 0.25);
+      background: rgba(139, 92, 246, 0.1); font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--violet);
     }
 
     .text-gradient {
       background: linear-gradient(to right, var(--violet), var(--purple), var(--cyan));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
     }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      border-radius: var(--radius-full);
-      font-weight: 700;
-      font-size: 1rem;
-      transition: transform 0.3s var(--easing),
-                  box-shadow 0.3s var(--easing),
-                  border-color 0.3s var(--easing),
-                  background 0.3s var(--easing);
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 1rem 2rem; border-radius: var(--radius-full); font-weight: 700; font-size: 1rem;
+      transition: transform 0.3s var(--easing), box-shadow 0.3s var(--easing), border-color 0.3s, background 0.3s;
     }
     .btn--primary {
       background: linear-gradient(to right, var(--violet), var(--blue));
-      color: #fff;
-      position: relative;
-      overflow: hidden;
+      color: #fff; position: relative; overflow: hidden;
     }
-    .btn--primary:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 44px -8px rgba(139, 92, 246, 0.9);
-    }
+    .btn--primary:hover { transform: scale(1.03); box-shadow: 0 0 44px -8px rgba(139, 92, 246, 0.9); }
     .btn--primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.7s;
+      content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, rgba(255,255,255,0.25), transparent);
+      transform: translateX(-100%); transition: transform 0.7s;
     }
     .btn--primary:hover::after { transform: translateX(100%); }
-    .btn--ghost {
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--slate-300);
-    }
-    .btn--ghost:hover {
-      border-color: rgba(139, 92, 246, 0.5);
-      color: #fff;
-    }
+    .btn--ghost { border: 1px solid rgba(255, 255, 255, 0.1); color: var(--slate-300); }
+    .btn--ghost:hover { border-color: rgba(139, 92, 246, 0.5); color: #fff; }
 
-    .section {
-      position: relative;
-      padding: 6rem 0;
-    }
-    @media (min-width: 1024px) {
-      .section { padding: 8rem 0; }
-    }
-    .section__title {
-      margin-top: 1.25rem;
-      font-family: var(--font-display);
-      font-size: clamp(1.75rem, 4vw, 2.25rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: #fff;
-    }
-    .section__lead {
-      margin-top: 1.25rem;
-      color: var(--slate-400);
-      max-width: 42rem;
-    }
+    .section { position: relative; padding: 6rem 0; }
+    @media (min-width: 1024px) { .section { padding: 8rem 0; } }
+    .section__title { margin-top: 1.25rem; font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.2; color: #fff; }
+    .section__lead { margin-top: 1.25rem; color: var(--slate-400); max-width: 42rem; }
 
     /* ============ 3. Scroll-reveal ============ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.8s var(--easing), transform 0.8s var(--easing);
-    }
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s var(--easing), transform 0.8s var(--easing); }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
     /* ============ 4. Header ============ */
-    .header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 50;
-      transition: background 0.5s, border-color 0.5s, backdrop-filter 0.5s;
-    }
-    .header.is-scrolled,
-    .header.is-open {
-      background: rgba(7, 7, 12, 0.85);
-      backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .header__nav {
-      height: 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background 0.5s, border-color 0.5s; }
+    .header.is-scrolled, .header.is-open { background: rgba(7, 7, 12, 0.85); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    .header__nav { height: 5rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
     .brand__logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.5rem;
-      height: 2.5rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      background: var(--ink-800);
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 700;
-      transition: all 0.3s;
+      display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem;
+      border-radius: var(--radius-md); border: 1px solid rgba(139, 92, 246, 0.3);
+      background: var(--ink-800); font-family: var(--font-display); font-size: 0.875rem; font-weight: 700; transition: all 0.3s;
     }
-    .brand:hover .brand__logo {
-      border-color: rgba(139, 92, 246, 0.6);
-      box-shadow: 0 0 24px -4px rgba(139, 92, 246, 0.6);
-    }
+    .brand:hover .brand__logo { border-color: rgba(139, 92, 246, 0.6); box-shadow: 0 0 24px -4px rgba(139, 92, 246, 0.6); }
     .brand__text { display: flex; flex-direction: column; line-height: 1; }
-    .brand__name {
-      font-family: var(--font-display);
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: #fff;
-    }
-    .brand__tag {
-      margin-top: 0.25rem;
-      font-size: 0.625rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.25em;
-      color: var(--slate-500);
-    }
+    .brand__name { font-family: var(--font-display); font-size: 0.875rem; font-weight: 600; color: #fff; }
+    .brand__tag { margin-top: 0.25rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em; color: var(--slate-500); }
 
-    .nav-links {
-      display: none;
-      align-items: center;
-      gap: 2rem;
-    }
-    @media (min-width: 1024px) {
-      .nav-links { display: flex; }
-    }
-    .nav-links a {
-      position: relative;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--slate-400);
-      transition: color 0.3s;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -0.375rem;
-      height: 1px;
-      width: 0;
-      background: linear-gradient(to right, var(--violet), var(--cyan));
-      transition: width 0.3s;
-    }
+    .nav-links { display: none; align-items: center; gap: 2rem; }
+    @media (min-width: 1024px) { .nav-links { display: flex; } }
+    .nav-links a { position: relative; font-size: 0.875rem; font-weight: 600; color: var(--slate-400); transition: color 0.3s; }
+    .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -0.375rem; height: 1px; width: 0; background: linear-gradient(to right, var(--violet), var(--cyan)); transition: width 0.3s; }
     .nav-links a:hover { color: #fff; }
     .nav-links a:hover::after { width: 100%; }
 
     .header__cta { display: none; }
-    @media (min-width: 1024px) {
-      .header__cta { display: block; }
-    }
+    @media (min-width: 1024px) { .header__cta { display: block; } }
     .header__cta .btn { padding: 0.75rem 1.5rem; font-size: 0.875rem; }
 
-    .menu-toggle {
-      position: relative;
-      z-index: 50;
-      width: 2.75rem;
-      height: 2.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: var(--ink-800);
-    }
-    @media (min-width: 1024px) {
-      .menu-toggle { display: none; }
-    }
-    .menu-toggle__inner {
-      display: flex;
-      flex-direction: column;
-      gap: 0.375rem;
-      align-items: center;
-    }
-    .menu-toggle__bar {
-      width: 1.25rem;
-      height: 2px;
-      border-radius: 2px;
-      background: #fff;
-      transition: all 0.3s;
-    }
-    .menu-toggle__bar:nth-child(2) {
-      background: linear-gradient(to right, var(--violet), var(--cyan));
-    }
-    .menu-toggle[aria-expanded='true'] .menu-toggle__bar:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    .menu-toggle[aria-expanded='true'] .menu-toggle__bar:nth-child(2) {
-      transform: scaleX(0);
-      opacity: 0;
-    }
-    .menu-toggle[aria-expanded='true'] .menu-toggle__bar:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
+    .menu-toggle { position: relative; z-index: 50; width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); background: var(--ink-800); }
+    @media (min-width: 1024px) { .menu-toggle { display: none; } }
+    .menu-toggle__inner { display: flex; flex-direction: column; gap: 0.375rem; align-items: center; }
+    .menu-toggle__bar { width: 1.25rem; height: 2px; border-radius: 2px; background: #fff; transition: all 0.3s; }
+    .menu-toggle__bar:nth-child(2) { background: linear-gradient(to right, var(--violet), var(--cyan)); }
+    .menu-toggle[aria-expanded='true'] .menu-toggle__bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle[aria-expanded='true'] .menu-toggle__bar:nth-child(2) { transform: scaleX(0); opacity: 0; }
+    .menu-toggle[aria-expanded='true'] .menu-toggle__bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
     /* ============ 5. Мобильное меню ============ */
-    .mobile-menu {
-      position: fixed;
-      inset: 5rem 0 0 0;
-      z-index: 40;
-      background: rgba(7, 7, 12, 0.98);
-      backdrop-filter: blur(40px);
-      padding: 2rem 1.5rem 2.5rem;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.5s, visibility 0.5s;
-    }
-    .mobile-menu.is-open {
-      visibility: visible;
-      opacity: 1;
-    }
-    @media (min-width: 1024px) {
-      .mobile-menu { display: none; }
-    }
-    .mobile-menu__list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .mobile-menu__link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(16, 16, 24, 0.6);
-      font-family: var(--font-display);
-      font-size: 1.125rem;
-      font-weight: 500;
-      color: #fff;
-      transform: translateX(24px);
-      opacity: 0;
-      transition: all 0.5s var(--easing);
-    }
-    .mobile-menu.is-open .mobile-menu__link {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    .mobile-menu__link:hover {
-      border-color: rgba(139, 92, 246, 0.4);
-    }
+    .mobile-menu { position: fixed; inset: 5rem 0 0 0; z-index: 40; background: rgba(7, 7, 12, 0.98); backdrop-filter: blur(40px); padding: 2rem 1.5rem 2.5rem; overflow-y: auto; display: flex; flex-direction: column; justify-content: space-between; visibility: hidden; opacity: 0; transition: opacity 0.5s, visibility 0.5s; }
+    .mobile-menu.is-open { visibility: visible; opacity: 1; }
+    @media (min-width: 1024px) { .mobile-menu { display: none; } }
+    .mobile-menu__list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .mobile-menu__link { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(16, 16, 24, 0.6); font-family: var(--font-display); font-size: 1.125rem; font-weight: 500; color: #fff; transform: translateX(24px); opacity: 0; transition: all 0.5s var(--easing); }
+    .mobile-menu.is-open .mobile-menu__link { transform: translateX(0); opacity: 1; }
+    .mobile-menu__link:hover { border-color: rgba(139, 92, 246, 0.4); }
     .mobile-menu__link span { color: var(--violet); }
-    .mobile-menu__footer {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      opacity: 0;
-      transform: translateY(24px);
-      transition: all 0.5s var(--easing) 0.4s;
-    }
-    .mobile-menu.is-open .mobile-menu__footer {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .mobile-menu__footer { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; opacity: 0; transform: translateY(24px); transition: all 0.5s var(--easing) 0.4s; }
+    .mobile-menu.is-open .mobile-menu__footer { opacity: 1; transform: translateY(0); }
 
     /* ============ 6. Hero ============ */
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 8rem 0 5rem;
-    }
+    .hero { position: relative; overflow: hidden; padding: 8rem 0 5rem; }
     @media (min-width: 640px) { .hero { padding-top: 10rem; } }
     @media (min-width: 1024px) { .hero { padding-top: 11rem; padding-bottom: 7rem; } }
-
-    .hero__grid-bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
-      background-size: 56px 56px;
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%);
-    }
-    .hero__glow--1 {
-      position: absolute;
-      top: -10rem;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 560px;
-      height: 560px;
-      border-radius: 50%;
-      background: rgba(139, 92, 246, 0.2);
-      filter: blur(140px);
-    }
-    .hero__glow--2 {
-      position: absolute;
-      top: 33%;
-      right: -8rem;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: rgba(59, 130, 246, 0.1);
-      filter: blur(120px);
-    }
-
-    .hero__container {
-      position: relative;
-      display: grid;
-      gap: 4rem;
-      align-items: center;
-    }
-    @media (min-width: 1024px) {
-      .hero__container { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    }
-
+    .hero__grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%); mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 40%, transparent 100%); }
+    .hero__glow--1 { position: absolute; top: -10rem; left: 50%; transform: translateX(-50%); width: 560px; height: 560px; border-radius: 50%; background: rgba(139, 92, 246, 0.2); filter: blur(140px); }
+    .hero__glow--2 { position: absolute; top: 33%; right: -8rem; width: 420px; height: 420px; border-radius: 50%; background: rgba(59, 130, 246, 0.1); filter: blur(120px); }
+    .hero__container { position: relative; display: grid; gap: 4rem; align-items: center; }
+    @media (min-width: 1024px) { .hero__container { grid-template-columns: 1fr 1fr; gap: 3rem; } }
     .hero__content { text-align: center; }
     @media (min-width: 1024px) { .hero__content { text-align: left; } }
-
-    .hero__title {
-      font-family: var(--font-display);
-      font-size: clamp(2.25rem, 6vw, 3.75rem);
-      font-weight: 700;
-      line-height: 1.12;
-      color: #fff;
-      margin-top: 1.75rem;
-    }
-    .hero__lead {
-      margin: 1.5rem auto 0;
-      max-width: 36rem;
-      font-size: 1.125rem;
-      line-height: 1.6;
-      color: var(--slate-400);
-    }
-    @media (min-width: 1024px) {
-      .hero__lead { margin-left: 0; }
-    }
-    .hero__actions {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-    @media (min-width: 640px) {
-      .hero__actions { flex-direction: row; }
-    }
-    @media (min-width: 1024px) {
-      .hero__actions { justify-content: flex-start; }
-    }
+    .hero__title { font-family: var(--font-display); font-size: clamp(2.25rem, 6vw, 3.75rem); font-weight: 700; line-height: 1.12; color: #fff; margin-top: 1.75rem; }
+    .hero__lead { margin: 1.5rem auto 0; max-width: 36rem; font-size: 1.125rem; line-height: 1.6; color: var(--slate-400); }
+    @media (min-width: 1024px) { .hero__lead { margin-left: 0; } }
+    .hero__actions { margin-top: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    @media (min-width: 640px) { .hero__actions { flex-direction: row; } }
+    @media (min-width: 1024px) { .hero__actions { justify-content: flex-start; } }
     .hero__actions .btn { width: 100%; }
-    @media (min-width: 640px) {
-      .hero__actions .btn { width: auto; }
-    }
-    .hero__footnote {
-      margin-top: 2rem;
-      font-size: 0.875rem;
-      color: var(--slate-500);
-    }
+    @media (min-width: 640px) { .hero__actions .btn { width: auto; } }
+    .hero__footnote { margin-top: 2rem; font-size: 0.875rem; color: var(--slate-500); }
 
-    /* Пульсирующая точка в бейдже */
     .dot-ping { position: relative; width: 8px; height: 8px; }
-    .dot-ping::before,
-    .dot-ping::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: var(--violet);
-    }
-    .dot-ping::before {
-      animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-      opacity: 0.75;
-    }
+    .dot-ping::before, .dot-ping::after { content: ''; position: absolute; inset: 0; border-radius: 50%; background: var(--violet); }
+    .dot-ping::before { animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; opacity: 0.75; }
 
-    /* ============ 7. Hero — мокап стрима ============ */
-    .stream-mock {
-      position: relative;
-      max-width: 520px;
-      margin: 0 auto;
-      width: 100%;
-    }
-    .stream-mock__glow {
-      position: absolute;
-      inset: -2rem;
-      border-radius: 2.5rem;
-      background: linear-gradient(to top right,
-        rgba(139, 92, 246, 0.25),
-        rgba(168, 85, 247, 0.1),
-        rgba(34, 211, 238, 0.2));
-      filter: blur(40px);
-      animation: pulseGlow 3.5s ease-in-out infinite;
-    }
-    .stream-mock__card {
-      position: relative;
-      padding: 1.25rem;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(139, 92, 246, 0.25);
-      background: rgba(10, 10, 18, 0.9);
-      box-shadow: 0 20px 60px -20px rgba(0,0,0,0.8);
-      backdrop-filter: blur(24px);
-    }
-    .stream-mock__toolbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
+    /* Мокап стрима */
+    .stream-mock { position: relative; max-width: 520px; margin: 0 auto; width: 100%; }
+    .stream-mock__glow { position: absolute; inset: -2rem; border-radius: 2.5rem; background: linear-gradient(to top right, rgba(139, 92, 246, 0.25), rgba(168, 85, 247, 0.1), rgba(34, 211, 238, 0.2)); filter: blur(40px); animation: pulseGlow 3.5s ease-in-out infinite; }
+    .stream-mock__card { position: relative; padding: 1.25rem; border-radius: var(--radius-xl); border: 1px solid rgba(139, 92, 246, 0.25); background: rgba(10, 10, 18, 0.9); box-shadow: 0 20px 60px -20px rgba(0,0,0,0.8); backdrop-filter: blur(24px); }
+    .stream-mock__toolbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
     .stream-mock__dots { display: flex; gap: 0.5rem; }
-    .stream-mock__dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
-    .stream-mock__dot--red    { background: rgba(239, 68, 68, 0.8); }
+    .stream-mock__dot { width: 12px; height: 12px; border-radius: 50%; }
+    .stream-mock__dot--red { background: rgba(239, 68, 68, 0.8); }
     .stream-mock__dot--yellow { background: rgba(234, 179, 8, 0.7); }
-    .stream-mock__dot--green  { background: rgba(34, 197, 94, 0.7); }
-    .stream-mock__live {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-full);
-      background: rgba(239, 68, 68, 0.15);
-      font-size: 0.625rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #f87171;
-    }
-    .stream-mock__viewers {
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-full);
-      background: var(--ink-600);
-      font-size: 0.625rem;
-      font-weight: 600;
-      color: var(--slate-400);
-    }
-    .stream-mock__video {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: linear-gradient(to bottom right, #1b1038, #101024, #061428);
-    }
-    .stream-mock__video-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.4;
-      background:
-        radial-gradient(circle at 25% 30%, rgba(139, 92, 246, 0.45), transparent 45%),
-        radial-gradient(circle at 75% 70%, rgba(34, 211, 238, 0.35), transparent 45%);
-    }
-    .stream-mock__video-mountain {
-      position: absolute;
-      left: 0; right: 0; bottom: 0;
-      height: 50%;
-      opacity: 0.6;
-      clip-path: polygon(0 100%, 0 55%, 12% 40%, 25% 60%, 38% 30%, 55% 55%, 70% 25%, 85% 50%, 100% 35%, 100% 100%);
-      background: linear-gradient(180deg, rgba(139, 92, 246, 0.35), rgba(10, 10, 18, 0.9));
-    }
-    .stream-mock__badge {
-      position: absolute;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.375rem 0.75rem;
-      border-radius: 8px;
-      background: rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(4px);
-      font-size: 0.625rem;
-      font-weight: 600;
-      color: var(--slate-300);
-    }
+    .stream-mock__dot--green { background: rgba(34, 197, 94, 0.7); }
+    .stream-mock__live { display: flex; align-items: center; gap: 0.5rem; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); background: rgba(239, 68, 68, 0.15); font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #f87171; }
+    .stream-mock__viewers { padding: 0.25rem 0.75rem; border-radius: var(--radius-full); background: var(--ink-600); font-size: 0.625rem; font-weight: 600; color: var(--slate-400); }
+    .stream-mock__video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); overflow: hidden; background: linear-gradient(to bottom right, #1b1038, #101024, #061428); }
+    .stream-mock__video-bg { position: absolute; inset: 0; opacity: 0.4; background: radial-gradient(circle at 25% 30%, rgba(139, 92, 246, 0.45), transparent 45%), radial-gradient(circle at 75% 70%, rgba(34, 211, 238, 0.35), transparent 45%); }
+    .stream-mock__video-mountain { position: absolute; left: 0; right: 0; bottom: 0; height: 50%; opacity: 0.6; clip-path: polygon(0 100%, 0 55%, 12% 40%, 25% 60%, 38% 30%, 55% 55%, 70% 25%, 85% 50%, 100% 35%, 100% 100%); background: linear-gradient(180deg, rgba(139, 92, 246, 0.35), rgba(10, 10, 18, 0.9)); }
+    .stream-mock__badge { position: absolute; display: flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.75rem; border-radius: 8px; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px); font-size: 0.625rem; font-weight: 600; color: var(--slate-300); }
     .stream-mock__badge--category { top: 1rem; left: 1rem; }
-    .stream-mock__badge--mic      { bottom: 1rem; right: 1rem; }
-    .stream-mock__badge--category .stream-mock__dot-live {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--cyan);
-      animation: pulseGlow 3.5s ease-in-out infinite;
-    }
-
-    .stream-mock__chat {
-      margin-top: 1rem;
-      padding: 0.875rem;
-      border-radius: var(--radius-lg);
-      background: rgba(16, 16, 24, 0.7);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .chat-line {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0.75rem;
-      border-radius: 10px;
-      background: rgba(22, 22, 31, 0.6);
-      font-size: 0.75rem;
-      animation: chatIn 0.6s ease-out both;
-    }
+    .stream-mock__badge--mic { bottom: 1rem; right: 1rem; }
+    .stream-mock__badge--category .stream-mock__dot-live { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); animation: pulseGlow 3.5s ease-in-out infinite; }
+    .stream-mock__chat { margin-top: 1rem; padding: 0.875rem; border-radius: var(--radius-lg); background: rgba(16, 16, 24, 0.7); display: flex; flex-direction: column; gap: 0.5rem; }
+    .chat-line { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 10px; background: rgba(22, 22, 31, 0.6); font-size: 0.75rem; animation: chatIn 0.6s ease-out both; }
     .chat-line__name { font-weight: 700; }
     .chat-line__text { color: var(--slate-400); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-
-    /* Микрофон-индикатор */
-    .mic {
-      display: flex;
-      align-items: flex-end;
-      gap: 2px;
-      height: 12px;
-    }
-    .mic span {
-      width: 3px;
-      border-radius: 2px;
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
+    .mic { display: flex; align-items: flex-end; gap: 2px; height: 12px; }
+    .mic span { width: 3px; border-radius: 2px; animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
     .mic span:nth-child(1) { height: 60%; background: var(--cyan); }
     .mic span:nth-child(2) { height: 100%; background: var(--violet); animation-delay: 0.2s; }
     .mic span:nth-child(3) { height: 40%; background: var(--blue); animation-delay: 0.4s; }
 
     /* Плавающие карточки */
-    .float-card {
-      position: absolute;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      border-radius: var(--radius-lg);
-      background: rgba(16, 16, 24, 0.95);
-      backdrop-filter: blur(24px);
-      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.8);
-      border: 1px solid;
-    }
-    .float-card__icon {
-      width: 2.25rem;
-      height: 2.25rem;
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.05);
-      font-size: 1.125rem;
-    }
+    .float-card { position: absolute; z-index: 10; display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; border-radius: var(--radius-lg); background: rgba(16, 16, 24, 0.95); backdrop-filter: blur(24px); box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.8); border: 1px solid; }
+    .float-card__icon { width: 2.25rem; height: 2.25rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255, 255, 255, 0.05); font-size: 1.125rem; }
     .float-card__body { line-height: 1.2; }
-    .float-card__label {
-      font-size: 0.625rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--slate-500);
-    }
-    .float-card__value {
-      font-size: 0.875rem;
-      font-weight: 800;
-      color: #fff;
-      margin-top: 2px;
-    }
-    .float-card__sub {
-      font-size: 0.625rem;
-      color: var(--slate-500);
-      margin-top: 2px;
-    }
-    .float-card--donate  { top: 4rem;  left: -1rem;  border-color: rgba(34, 211, 238, 0.3);  background: linear-gradient(to right, rgba(34, 211, 238, 0.2), transparent), rgba(16, 16, 24, 0.95); animation: float 7s ease-in-out infinite; }
-    .float-card--contract{ top: 33%;  right: -0.75rem; border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(to right, rgba(139, 92, 246, 0.2), transparent), rgba(16, 16, 24, 0.95); animation: float 5.5s ease-in-out 0.8s infinite; }
-    .float-card--partner { bottom: -1.5rem; left: 2rem; border-color: rgba(59, 130, 246, 0.3);  background: linear-gradient(to right, rgba(59, 130, 246, 0.2), transparent), rgba(16, 16, 24, 0.95); animation: float 4.5s ease-in-out 1.6s infinite; }
-    @media (min-width: 640px) {
-      .float-card--donate   { left: -2.5rem; }
-      .float-card--contract { right: -2rem; }
-    }
+    .float-card__label { font-size: 0.625rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--slate-500); }
+    .float-card__value { font-size: 0.875rem; font-weight: 800; color: #fff; margin-top: 2px; }
+    .float-card__sub { font-size: 0.625rem; color: var(--slate-500); margin-top: 2px; }
+    .float-card--donate { top: 4rem; left: -1rem; border-color: rgba(34, 211, 238, 0.3); background: linear-gradient(to right, rgba(34, 211, 238, 0.2), transparent), rgba(16, 16, 24, 0.95); animation: float 7s ease-in-out infinite; }
+    .float-card--contract { top: 33%; right: -0.75rem; border-color: rgba(139, 92, 246, 0.3); background: linear-gradient(to right, rgba(139, 92, 246, 0.2), transparent), rgba(16, 16, 24, 0.95); animation: float 5.5s ease-in-out 0.8s infinite; }
+    .float-card--partner { bottom: -1.5rem; left: 2rem; border-color: rgba(59, 130, 246, 0.3); background: linear-gradient(to right, rgba(59, 130, 246, 0.2), transparent), rgba(16, 16, 24, 0.95); animation: float 4.5s ease-in-out 1.6s infinite; }
+    @media (min-width: 640px) { .float-card--donate { left: -2.5rem; } .float-card--contract { right: -2rem; } }
 
     /* ============ 8. About ============ */
-    .about__grid {
-      display: grid;
-      gap: 3.5rem;
-      align-items: start;
-    }
-    @media (min-width: 1024px) {
-      .about__grid {
+    .about__grid { display: grid; gap: 3.5rem; align-items: start; }
+    @media (min-width: 1024px) { .about__grid { grid-template-columns: 1fr 1.2fr; } }
+    .about-cards { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .about-cards { grid-template-columns: 1fr 1fr; } }
+    .about-card { padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(16, 16, 24, 0.6); transition: all 0.3s; }
+    .about-card:hover { transform: translateY(-4px); border-color: rgba(139, 92, 246, 0.4); box-shadow: 0 16px 48px -16px rgba(139, 92, 246, 0.4); }
+    .about-card__icon { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); background: var(--ink-700); font-size: 1.5rem; }
+    .about-card__title { margin-top: 1.25rem; font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: #fff; }
+    .about-card__text { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-400); }
+
+    /* ============ 9. Services ============ */
+    .services-grid { margin-top: 3.5rem; display: grid; gap: 1.25rem; }
+    @media (min-width: 640px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(4, 1fr); } }
+    .service-card { position: relative; display: flex; flex-direction: column; padding: 1.75rem; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(16, 16, 24, 0.6); transition: all 0.3s; overflow: hidden; }
+    .service-card:hover { transform: translateY(-8px); border-color: rgba(139, 92, 246, 0.5); box-shadow: 0 16px 50px -14px rgba(139, 92, 246, 0.55); }
+    .service-card__icon { display: flex; align-items: center; justify-content: center; width: 3.5rem; height: 3.5rem; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.1); background: var(--ink-700); font-size: 1.5rem; }
+    .service-card__title { margin-top: 1.5rem; font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; line-height: 1.3; color: #fff; }
+    .service-card__text { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-400); }
+
+    /* ============ 10. Process ============ */
+    .process-list { position: relative; margin-top: 4rem; display: grid; gap: 2.5rem; }
+    @media (min-width: 640px) { .process-list { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1024px) { .process-list { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+    .process-list::before { content: ''; position: absolute; top: 2rem; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.4), transparent); display: none; }
+    @media (min-width: 1024px) { .process-list::before { display: block; } }
+    .process-step { position: relative; text-align: center; }
+    @media (min-width: 1024px) { .process-step { text-align: left; } }
+    .process-step__num { position: relative; z-index: 10; display: flex; align-items: center; justify-content: center; width: 4rem; height: 4rem; margin: 0 auto; border-radius: var(--radius-lg); border: 1px solid rgba(139, 92, 246, 0.3); background: var(--ink-900); font-family: var(--font-display); font-size: 0.875rem; font-weight: 700; color: var(--violet); transition: all 0.3s; }
+    @media (min-width: 1024px) { .process-step__num { margin: 0; } }
+    .process-step:hover .process-step__num { transform: scale(1.1); border-color: rgba(139, 92, 246, 0.6); box-shadow: 0 0 32px -6px rgba(139, 92, 246, 0.8); }
+    .process-step__title { margin-top: 1.5rem; font-family: var(--font-display); font-size: 1rem; font-weight: 600; line-height: 1.3; color: #fff; }
+    .process-step__text { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-400); }
+
+    /* ============ 11. Audience ============ */
+    .audience__grid { display: grid; gap: 3.5rem; align-items: center; }
+    @media (min-width: 1024px) { .audience__grid { grid-template-columns: 1fr 1.3fr; } }
+    .audience-note { margin-top: 2rem; display: flex; gap: 1rem; padding: 1.25rem; border-radius: var(--radius-lg); border: 1px solid rgba(139, 92, 246, 0.2); background: rgba(139, 92, 246, 0.05); }
+    .audience-note__icon { font-size: 1.5rem; }
+    .audience-note__text { font-size: 0.875rem; line-height: 1.6; color: var(--slate-300); }
+    .audience-cards { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .audience-cards { grid-template-columns: 1fr 1fr; } }
+    .audience-card { display: flex; flex-direction: column; padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid rgba(255, 255, 255, 0.05); background: rgba(16, 16, 24, 0.6); transition: all 0.3s; }
+    .audience-card:hover { transform: translateY(-4px); border-color: rgba(34, 211, 238, 0.4); box-shadow: 0 16px 48px -16px rgba(34, 211, 238, 0.35); }
+    .audience-card__icon { font-size: 1.875rem; }
+    .audience-card__title { margin-top: 1rem; font-family: var(--font-display); font-size: 1rem; font-weight: 600; line-height: 1.3; color: #fff; }
+    .audience-card__text { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-400); }
+
+    /* ============ 12. Contact ============ */
+    .contact-wrapper { position: relative; overflow: hidden; border-radius: 28px; border: 1px solid rgba(255, 255, 255, 0.08); background: radial-gradient(46rem 22rem at 0% 0%, rgba(139, 92, 246, 0.2), transparent 60%), radial-gradient(40rem 22rem at 100% 100%, rgba(59, 130, 246, 0.14), transparent 60%), var(--ink-800); padding: 1.5rem; }
+    @media (min-width: 640px) { .contact-wrapper { padding: 2.5rem; } }
+    @media (min-width: 1024px) { .contact-wrapper { padding: 3.5rem; } }
+    .contact__grid { display: grid; gap: 2.5rem; align-items: start; }
+    @media (min-width: 1024px) { .contact__grid { grid-template-columns: 0.85fr 1.15fr; gap: 3.5rem; } }
+    .contact__title { font-family: var(--font-display); font-size: clamp(1.75rem, 4vw, 2.25rem); font-weight: 700; line-height: 1.2; color: #fff; }
+    .contact__lead { margin-top: 1.25rem; max-width: 28rem; line-height: 1.6; color: var(--slate-400); }
+    .contact__tg-btn { margin-top: 2rem; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.5rem; border-radius: var(--radius-full); border: 1px solid rgba(255, 255, 255, 0.1); background: rgba(255, 255, 255, 0.05); font-size: 0.875rem; font-weight: 700; color: #fff; transition: all 0.3s; }
+    .contact__tg-btn:hover { border-color: rgba(139, 92, 246, 0.6); background: rgba(139, 92, 246, 0.1); box-shadow: 0 0 28px -8px rgba(139, 92, 246, 0.7); }
+
+    .form-grid { display: grid; gap: 1.25rem; }
+    .form-group { display: grid; gap: 0.375rem; }
+    .form-group label { font-size: 0.875rem; font-weight: 600; color: var(--slate-300); }
+    .form-control { min-height: 50px; width: 100%; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); background: var(--ink-900); padding: 0 1rem; font-size: 0.875rem; color: #fff; outline: none; transition: all 0.3s; }
+    .form-control::placeholder { color: var(--slate-600); }
+    .form-control:focus { border-color: rgba(139, 92, 246, 0.6); box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.22); }
+    .form-control.error { border-color: rgba(239, 68, 68, 0.6); box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.14); }
+    select.form-control { appearance: none; padding-right: 3rem; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.2em; }
+    .form-hint { font-size: 0.75rem; color: var(--slate-500); }
+    .form-error { font-size: 0.75rem; font-weight: 500; color: #f87171; display: none; }
+    .form-error.is-visible { display: block; }
+    .form-row { display: grid; gap: 1.25rem; }
+    @media (min-width: 640px) { .form-row { grid-template-columns: 1fr 1fr; } }
+
+    .form-success { display: none; padding: 1.75rem; border-radius: var(--radius-xl); border: 1px solid rgba(52, 211, 153, 0.4); background: rgba(16, 16, 24, 0.8); }
+    .form-success.is-active { display: block; }
+    .form-success__icon { display: flex; align-items: center; justify-content: center; width: 3rem; height: 3rem; border-radius: var(--radius-md); border: 1px solid rgba(52, 211, 153, 0.4); background: rgba(52, 211, 153, 0.1); font-size: 1.5rem; color: #34d399; }
+    .form-success__title { margin-top: 1.5rem; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: #fff; }
+    .form-success__text { margin-top: 0.75rem; line-height: 1.6; color: var(--slate-400); }
+    .form-success__textarea { margin-top: 1.25rem; width: 100%; resize: vertical; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); background: var(--ink-900); padding: 0.75rem 1rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-300); outline: none; }
+    .form-success__actions { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    @media (min-width: 640px) { .form-success__actions { flex-direction: row; } }
+    .form-success__edit { margin-top: 1.25rem; font-size: 0.875rem; color: var(--slate-500); text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s; }
+    .form-success__edit:hover { color: #fff; }
+
+    /* ============ 13. Footer ============ */
+    .footer { position: relative; border-top: 1px solid rgba(255, 255, 255, 0.05); background: rgba(10, 10, 18, 0.6); padding: 3.5rem 0; }
+    .footer__grid { display: flex; flex-direction: column; gap: 2.5rem; }
+    @media (min-width: 1024px) { .footer__grid { flex-direction: row; align-items: flex-start; justify-content: space-between; } }
+    .footer__brand { max-width: 24rem; }
+    .footer__desc { margin-top: 1.25rem; font-size: 0.875rem; line-height: 1.6; color: var(--slate-500); }
+    .footer__nav-title { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--slate-500); }
+    .footer__nav-list { margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 2.5rem; }
+    @media (min-width: 640px) { .footer__nav-list { display: flex; flex-direction: column; gap: 0.75rem; } }
+    .footer__nav-list a { font-size: 0.875rem; font-weight: 500; color: var(--slate-400); transition: color 0.3s; }
+    .footer__nav-list a:hover { color: #fff; }
+    .footer__bottom { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.05); display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 1rem; }
+    @media (min-width: 640px) { .footer__bottom { flex-direction: row; } }
+    .footer__copy { font-size: 0.75rem; color: var(--slate-600); }
+
+    /* ============ 14. Анимации ============ */
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+    @keyframes pulseGlow { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+    @keyframes pulse { 50% { opacity: 0.5; } }
+    @keyframes ping { 75%, 100% { transform: scale(2); opacity: 0; } }
+    @keyframes chatIn { 0% { opacity: 0; transform: translate(-10px); } 100% { opacity: 1; transform: translate(0); } }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="container header__nav">
+      <a href="#top" class="brand">
+        <span class="brand__logo text-gradient">RF</span>
+        <span class="brand__text">
+          <span class="brand__name">RF AGENCY</span>
+          <span class="brand__tag">для стримеров</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#process">Как мы работаем</a></li>
+        <li><a href="#audience">Кому подходим</a></li>
+      </ul>
+      <div class="header__cta">
+        <a href="#contact" class="btn btn--primary">Обсудить сотрудничество</a>
+      </div>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Открыть меню" aria-expanded="false">
+        <span class="menu-toggle__inner">
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu__list">
+      <li><a href="#about" class="mobile-menu__link">О нас <span>→</span></a></li>
+      <li><a href="#services" class="mobile-menu__link">Услуги <span>→</span></a></li>
+      <li><a href="#process" class="mobile-menu__link">Как мы работаем <span>→</span></a></li>
+      <li><a href="#audience" class="mobile-menu__link">Кому подходим <span>→</span></a></li>
+    </ul>
+    <div class="mobile-menu__footer">
+      <a href="#contact" class="btn btn--primary" style="width:100%">Обсудить сотрудничество</a>
+      <a href="https://t.me/rf_agency" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" style="width:100%">Написать в Telegram</a>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__grid-bg"></div>
+      <div class="hero__glow--1"></div>
+      <div class="hero__glow--2"></div>
+      <div class="container hero__container">
+        <div class="hero__content">
+          <div class="badge"><span class="dot-ping"></span>Агентство для игровых стримеров</div>
+          <h1 class="hero__title">Превращаем твой стрим в <span class="text-gradient">стабильный доход</span></h1>
+          <p class="hero__lead">Берём на себя поиск рекламных возможностей, организацию интеграций и развитие вашего канала.</p>
+          <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Обсудить сотрудничество</a>
+            <a href="#process" class="btn btn--ghost">Как мы работаем ↓</a>
+          </div>
+          <p class="hero__footnote">Работаем со стримерами Twitch, YouTube и игровых площадок</p>
+        </div>
+
+        <!-- Stream Mockup -->
+        <div class="stream-mock">
+          <div class="stream-mock__glow"></div>
+          <div class="stream-mock__card">
+            <div class="stream-mock__toolbar">
+              <div class="stream-mock__dots">
+                <span class="stream-mock__dot stream-mock__dot--red"></span>
+                <span class="stream-mock__dot stream-mock__dot--yellow"></span>
+                <span class="stream-mock__dot stream-mock__dot--green"></span>
+              </div>
+              <div class="stream-mock__live"><span class="dot-ping" style="width:6px;height:6px;background:#f87171"></span>Live</div>
+              <span class="stream-mock__viewers">👁 1 248 смотрят</span>
+            </div>
+            <div class="stream-mock__video">
+              <div class="stream-mock__video-bg"></div>
+              <div class="stream-mock__video-mountain"></div>
+              <div class="stream-mock__badge stream-mock__badge--category">
+                <span class="stream-mock__dot-live"></span>Категория: Just Chatting → Игра дня
+              </div>
+              <div class="stream-mock__badge stream-mock__badge--mic">
+                🎙 Микрофон <div class="mic"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="stream-mock__chat">
+              <div class="chat-line"><span class="chat-line__name" style="color:var(--cyan)">NeonFox:</span><span class="chat-line__text">разбор строительства был топ 🔥</span></div>
+              <div class="chat-line"><span class="chat-line__name" style="color:var(--purple)">pixelQueen:</span><span class="chat-line__text">го ещё раунд!</span></div>
+              <div class="chat-line"><span class="chat-line__name" style="color:var(--blue)">GhostByte:</span><span class="chat-line__text">стрим как всегда на уровне</span></div>
+            </div>
+          </div>
+
+          <!-- Floating Cards -->
+          <div class="float-card float-card--donate">
+            <div class="float-card__icon">💸</div>
+            <div class="float-card__body">
+              <div class="float-card__label">Новый донат</div>
+              <div class="float-card__value">+500 ₽</div>
+              <div class="float-card__sub">от зрителя NeonFox</div>
+            </div>
+          </div>
+          <div class="float-card float-card--contract">
+            <div class="float-card__icon">📈</div>
+            <div class="float-card__body">
+              <div class="float-card__label">Рекламный контракт</div>
+              <div class="float-card__value">30 000 ₽</div>
+              <div class="float-card__sub">3 интеграции · игровой бренд</div>
+            </div>
+          </div>
+          <div class="float-card float-card--partner">
+            <div class="float-card__icon">🤝</div>
+            <div class="float-card__body">
+              <div class="float-card__label">Партнёрская программа</div>
+              <div class="float-card__value">Одобрено</div>
+              <div class="float-card__sub">статус партнёра активирован</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="about__grid">
+          <div class="reveal">
+            <span class="badge">О нас</span>
+            <h2 class="section__title">Агентство, которое работает <span class="text-gradient">на стороне стримера</span></h2>
+            <p class="section__lead">RF Agency помогает игровым стримерам зарабатывать на любимом деле. Мы закрываем коммерческую часть — поиск рекламодателей, переговоры и организацию интеграций, — чтобы вы могли сосредоточиться на контенте.</p>
+            <p class="section__lead">Мы не обещаем мгновенных результатов: вместо этого предлагаем системную работу над каналом и прозрачные условия на каждом этапе.</p>
+          </div>
+          <div class="about-cards">
+            <div class="about-card reveal">
+              <span class="about-card__icon">🎯</span>
+              <h3 class="about-card__title">Рекламные возможности</h3>
+              <p class="about-card__text">Находим рекламные предложения, которые подходят тематике и аудитории вашего канала.</p>
+            </div>
+            <div class="about-card reveal" style="transition-delay:100ms">
+              <span class="about-card__icon">🎬</span>
+              <h3 class="about-card__title">Рекламные интеграции</h3>
+              <p class="about-card__text">Организуем размещение рекламы: от согласования формата до запуска интеграции.</p>
+            </div>
+            <div class="about-card reveal" style="transition-delay:200ms">
+              <span class="about-card__icon">🔗</span>
+              <h3 class="about-card__title">Партнёрские программы</h3>
+              <p class="about-card__text">Помогаем с подключением к партнёрским программам и работой с ними.</p>
+            </div>
+            <div class="about-card reveal" style="transition-delay:300ms">
+              <span class="about-card__icon">🚀</span>
+              <h3 class="about-card__title">Личный бренд</h3>
+              <p class="about-card__text">Развиваем ваше присутствие на других площадках и укрепляем личный бренд.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="reveal" style="text-align:center; margin:0 auto; max-width:42rem">
+          <span class="badge">Что мы предлагаем</span>
+          <h2 class="section__title">Услуги, закрывающие <span class="text-gradient">коммерческую часть</span> канала</h2>
+          <p class="section__lead">Вы занимаетесь контентом — мы берём на себя всё, что связано с рекламой и развитием.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <span class="service-card__icon">🎯</span>
+            <h3 class="service-card__title">Поиск рекламодателей</h3>
+            <p class="service-card__text">Подбираем рекламные предложения с учётом тематики и аудитории канала.</p>
+          </article>
+          <article class="service-card reveal" style="transition-delay:100ms">
+            <span class="service-card__icon">🎬</span>
+            <h3 class="service-card__title">Рекламные интеграции</h3>
+            <p class="service-card__text">Помогаем организовать размещение рекламы: формат, тайминги, согласование и запуск.</p>
+          </article>
+          <article class="service-card reveal" style="transition-delay:200ms">
+            <span class="service-card__icon">✨</span>
+            <h3 class="service-card__title">Развитие канала</h3>
+            <p class="service-card__text">Помогаем с позиционированием, оформлением и упаковкой канала.</p>
+          </article>
+          <article class="service-card reveal" style="transition-delay:300ms">
+            <span class="service-card__icon">🧭</span>
+            <h3 class="service-card__title">Маркетинговая стратегия</h3>
+            <p class="service-card__text">Помогаем определить направления развития и привлечения аудитории.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="section">
+      <div class="container">
+        <div class="reveal" style="text-align:center; margin:0 auto; max-width:42rem">
+          <span class="badge">Как проходит сотрудничество</span>
+          <h2 class="section__title">Четыре шага <span class="text-gradient">до первых интеграций</span></h2>
+        </div>
+        <ol class="process-list">
+          <li class="process-step reveal">
+            <div class="process-step__num">01</div>
+            <h3 class="process-step__title">Знакомство и анализ канала</h3>
+            <p class="process-step__text">Смотрим на контент, аудиторию и тематику, чтобы понять сильные стороны канала.</p>
+          </li>
+          <li class="process-step reveal" style="transition-delay:130ms">
+            <div class="process-step__num">02</div>
+            <h3 class="process-step__title">Обсуждение условий сотрудничества</h3>
+            <p class="process-step__text">Прозрачно проговариваем формат работы, ожидания и условия — без скрытых пунктов.</p>
+          </li>
+          <li class="process-step reveal" style="transition-delay:260ms">
+            <div class="process-step__num">03</div>
+            <h3 class="process-step__title">Подбор рекламных возможностей</h3>
+            <p class="process-step__text">Ищем предложения, которые органично впишутся в контент и не будут раздражать зрителей.</p>
+          </li>
+          <li class="process-step reveal" style="transition-delay:390ms">
+            <div class="process-step__num">04</div>
+            <h3 class="process-step__title">Запуск интеграций и анализ</h3>
+            <p class="process-step__text">Запускаем размещения, отслеживаем результаты и корректируем стратегию.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Audience -->
+    <section id="audience" class="section">
+      <div class="container">
+        <div class="audience__grid">
+          <div class="reveal">
+            <span class="badge">Кому подходим</span>
+            <h2 class="section__title">Работаем с теми, кто <span class="text-gradient">серьёзно про контент</span></h2>
+            <p class="section__lead">Количество подписчиков — не единственный критерий отбора. Нам важны регулярность эфиров, отношение к делу и готовность развиваться вместе.</p>
+            <div class="audience-note">
+              <span class="audience-note__icon">💡</span>
+              <p class="audience-note__text">Если вы только начинаете, но подходите к стримам системно — оставьте заявку. Обсудим, чего уже можно достичь на вашем этапе.</p>
+            </div>
+          </div>
+          <div class="audience-cards">
+            <div class="audience-card reveal">
+              <span class="audience-card__icon">🟣</span>
+              <h3 class="audience-card__title">Twitch-стримерам</h3>
+              <p class="audience-card__text">Проводим прямые трансляции и хотим монетизировать эфиры без ущерба для контента.</p>
+            </div>
+            <div class="audience-card reveal" style="transition-delay:100ms">
+              <span class="audience-card__icon">🔴</span>
+              <h3 class="audience-card__title">YouTube-стримерам</h3>
+              <p class="audience-card__text">Ведём трансляции и записи на YouTube и ищем системный подход к рекламе.</p>
+            </div>
+            <div class="audience-card reveal" style="transition-delay:200ms">
+              <span class="audience-card__icon">🎮</span>
+              <h3 class="audience-card__title">Игровым блогерам</h3>
+              <p class="audience-card__text">Создаём игровой контент в любых форматах — от обзоров до летсплеев.</p>
+            </div>
+            <div class="audience-card reveal" style="transition-delay:300ms">
+              <span class="audience-card__icon">🌱</span>
+              <h3 class="audience-card__title">Небольшим и средним каналам</h3>
+              <p class="audience-card__text">Растим канал и хотим выстроить монетизацию с первых шагов.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-wrapper reveal">
+          <div class="contact__grid">
+            <div>
+              <h2 class="contact__title">Готов развивать свой канал <span class="text-gradient">вместе с нами?</span></h2>
+              <p class="contact__lead">Расскажи немного о своём канале — обсудим возможности сотрудничества.</p>
+              <a href="https://t.me/rf_agency" target="_blank" rel="noopener noreferrer" class="contact__tg-btn">
+                <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+                Или напиши в Telegram
+              </a>
+            </div>
+            <div>
+              <form id="contact-form" class="form-grid" novalidate>
+                <div class="form-group">
+                  <label for="f-name">Имя или никнейм</label>
+                  <input type="text" id="f-name" class="form-control" placeholder="Например, Alex" autocomplete="nickname">
+                  <span class="form-error" id="err-name">Укажи имя или никнейм, минимум 2 символа.</span>
+                </div>
+                <div class="form-group">
+                  <label for="f-channel">Ссылка на канал</label>
+                  <input type="text" id="f-channel" class="form-control" placeholder="twitch.tv/nickname" autocomplete="url">
+                  <span class="form-error" id="err-channel">Укажи ссылку на канал, например twitch.tv/nickname.</span>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="f-platform">Основная платформа</label>
+                    <select id="f-platform" class="form-control" style="color:var(--slate-600)">
+                      <option value="" disabled selected>Выбери платформу</option>
+                      <option value="Twitch" style="color:#fff">Twitch</option>
+                      <option value="YouTube" style="color:#fff">YouTube</option>
+                      <option value="Kick" style="color:#fff">Kick</option>
+                      <option value="VK Play Live" style="color:#fff">VK Play Live</option>
+                      <option value="Другая" style="color:#fff">Другая</option>
+                    </select>
+                    <span class="form-error" id="err-platform">Выбери основную платформу.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="f-online">Средний онлайн <span class="form-hint">(Зрителей одновременно)</span></label>
+                    <input type="text" id="f-online" class="form-control" placeholder="Например, 25" inputmode="numeric">
+                    <span class="form-error" id="err-online">Укажи средний онлайн числом, например 25.</span>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="f-contact">Контакт для связи <span class="form-hint">(Telegram, почта или телефон)</span></label>
+                  <input type="text" id="f-contact" class="form-control" placeholder="@username" autocomplete="off">
+                  <span class="form-error" id="err-contact">Укажи Telegram (@username), почту или телефон.</span>
+                </div>
+                <button type="submit" class="btn btn--primary" style="margin-top:0.5rem; min-height:52px">Оставить заявку</button>
+                <p style="text-align:center; font-size:0.75rem; color:var(--slate-500)">Мы не обещаем гарантированный доход. Условия сотрудничества обсуждаем индивидуально.</p>
+              </form>
+
+              <div id="form-success" class="form-success">
+                <span class="form-success__icon">✓</span>
+                <h3 class="form-success__title">Заявка готова к отправке</h3>
+                <p class="form-success__text">Чтобы мы её получили, отправь это сообщение нам в Telegram. Текст уже подготовлен, <b id="success-name"></b>.</p>
+                <textarea id="success-message" class="form-success__textarea" readonly rows="7"></textarea>
+                <div class="form-success__actions">
+                  <a href="#" id="tg-send-btn" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="flex:1">
+                    <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+                    Отправить в Telegram
+                  </a>
+                  <button type="button" id="copy-btn" class="btn btn--ghost" style="flex:1">Скопировать текст</button>
+                </div>
+                <button type="button" id="edit-btn" class="form-success__edit">Изменить данные</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#top" class="brand">
+            <span class="brand__logo text-gradient">RF</span>
+            <span class="brand__text">
+              <span class="brand__name">RF AGENCY</span>
+              <span class="brand__tag">для стримеров</span>
+            </span>
+          </a>
+          <p class="footer__desc">Агентство продвижения для игровых стримеров. Помогаем находить рекламные возможности и развивать канал.</p>
+        </div>
+        <nav>
+          <h3 class="footer__nav-title">Навигация</h3>
+          <ul class="footer__nav-list">
+            <li><a href="#about">О нас</a></li>
+            <li><a href="#services">Услуги</a></li>
+            <li><a href="#process">Как мы работаем</a></li>
+            <li><a href="#audience">Кому подходим</a></li>
+            <li><a href="#contact">Оставить заявку</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 class="footer__nav-title">Связь</h3>
+          <a href="https://t.me/rf_agency" target="_blank" rel="noopener noreferrer" class="contact__tg-btn" style="margin-top:1rem">
+            <svg style="width:16px;height:16px;color:var(--cyan)" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.2 1.3Z"/></svg>
+            @rf_agency
+          </a>
+          <p class="footer__desc" style="max-width:20rem">Напишите нам — ответим и обсудим ваш канал.</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copy">© <span id="year"></span> RF Agency</p>
+        <p class="footer__copy">Сайт предназначен для стримеров и авторов каналов</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Установка года
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Логика скролла хедера
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 24) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }, { passive: true });
+
+      // Мобильное меню
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const body = document.body;
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isOpen);
+        if (!isOpen) {
+          mobileMenu.classList.add('is-open');
+          header.classList.add('is-open');
+          body.style.overflow = 'hidden';
+        } else {
+          mobileMenu.classList.remove('is-open');
+          header.classList.remove('is-open');
+          body.style.overflow = '';
+        }
+      });
+
+      // Закрытие меню по клику на ссылку
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.remove('is-open');
+          header.classList.remove('is-open');
+          body.style.overflow = '';
+        });
+      });
+
+      // Scroll Reveal анимации
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // Валидация формы
+      const form = document.getElementById('contact-form');
+      const successDiv = document.getElementById('form-success');
+      const platformSelect = document.getElementById('f-platform');
+
+      // Меняем цвет селекта при выборе
+      platformSelect.addEventListener('change', (e) => {
+        e.target.style.color = '#fff';
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let isValid = true;
+
+        const fields = [
+          { id: 'f-name', err: 'err-name', validate: (v) => v.trim().length >= 2 },
+          { id: 'f-channel', err: 'err-channel', validate: (v) => v.trim().length > 4 },
+          { id: 'f-platform', err: 'err-platform', validate: (v) => v !== '' },
+          { id: 'f-online', err: 'err-online', validate: (v) => /^\d{1,6}$/.test(v.trim()) },
+          { id: 'f-contact', err: 'err-contact', validate: (v) => v.trim().length >= 5 }
+        ];
+
+        // Сброс ошибок
+        fields.forEach(f => {
+          document.getElementById(f.id).classList.remove('error');
+          document.getElementById(f.err).classList.remove('is-visible');
+        });
+
+        // Проверка
+        fields.forEach(f => {
+          const el = document.getElementById(f.id);
+          if (!f.validate(el.value)) {
+            el.classList.add('error');
+            document.getElementById(f.err).classList.add('is-visible');
+            isValid = false;
+          }
+        });
+
+        if (isValid) {
+          // Сбор данных
+          const data = {
+            name: document.getElementById('f-name').value.trim(),
+            channel: document.getElementById('f-channel').value.trim(),
+            platform: document.getElementById('f-platform').value,
+            online: document.getElementById('f-online').value.trim(),
+            contact: document.getElementById('f-contact').value.trim()
+          };
+
+          // Формирование сообщения
+          const msg = `Здравствуйте! Хочу обсудить сотрудничество с RF Agency.\n\nИмя / ник: ${data.name}\nКанал: ${data.channel}\nПлатформа: ${data.platform}\nСредний онлайн: ${data.online}\nКонтакт: ${data.contact}`;
+
+          // Настройка экрана успеха
+          document.getElementById('success-name').textContent = data.name;
+          document.getElementById('success-message').value = msg;
+          
+          const tgLink = `https://t.me/rf_agency?text=${encodeURIComponent(msg)}`;
+          document.getElementById('tg-send-btn').href = tgLink;
+
+          form.style.display = 'none';
+          successDiv.classList.add('is-active');
+        }
+      });
+
+      // Кнопка "Скопировать"
+      document.getElementById('copy-btn').addEventListener('click', function() {
+        const text = document.getElementById('success-message').value;
+        navigator.clipboard.writeText(text).then(() => {
+          const originalText = this.textContent;
+          this.textContent = 'Скопировано!';
+          setTimeout(() => this.textContent = originalText, 2000);
+        });
+      });
+
+      // Кнопка "Изменить"
+      document.getElementById('edit-btn').addEventListener('click', () => {
+        form.style.display = 'grid';
+        successDiv.classList.remove('is-active');
+      });
+    });
+  </script>
+</body>
+</html>
