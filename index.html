@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="ru">
 <head>
-  <link rel="icon" type="image/png" href="media/favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="RF Agency — агентство продвижения для игровых стримеров. Рекламные интеграции, партнёрские программы и развитие канала." />
   <title>RF Agency — Превращаем твой стрим в стабильный доход</title>
+  
+  <!-- Фавиконка (иконка вкладки) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238b5cf6'/%3E%3Cstop offset='1' stop-color='%2322d3ee'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230a0a12'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='bold' font-size='14' fill='url(%23g)' text-anchor='middle'%3ERF%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,11 +105,12 @@
     .header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background 0.5s, border-color 0.5s; }
     .header.is-scrolled, .header.is-open { background: rgba(7, 7, 12, 0.85); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
     .header__nav { height: 5rem; display: flex; align-items: center; justify-content: space-between; }
+    
     .brand { display: flex; align-items: center; gap: 0.75rem; }
     .brand__logo {
       display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem;
       border-radius: var(--radius-md); border: 1px solid rgba(139, 92, 246, 0.3);
-      background: var(--ink-800); font-family: var(--font-display); font-size: 0.875rem; font-weight: 700; transition: all 0.3s;
+      background: var(--ink-800); overflow: hidden; transition: all 0.3s;
     }
     .brand:hover .brand__logo { border-color: rgba(139, 92, 246, 0.6); box-shadow: 0 0 24px -4px rgba(139, 92, 246, 0.6); }
     .brand__text { display: flex; flex-direction: column; line-height: 1; }
@@ -326,7 +329,19 @@
   <header class="header" id="header">
     <nav class="container header__nav">
       <a href="#top" class="brand">
-        <span class="brand__logo text-gradient">RF</span>
+        <span class="brand__logo">
+          <!-- Встроенный SVG логотип (вместо текста) -->
+          <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+             <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                   <stop offset="0%" stop-color="#8b5cf6"/>
+                   <stop offset="100%" stop-color="#22d3ee"/>
+                </linearGradient>
+             </defs>
+             <rect width="100" height="100" fill="#101018"/>
+             <text x="50" y="65" font-family="Unbounded, sans-serif" font-weight="bold" font-size="36" fill="url(#grad)" text-anchor="middle">RF</text>
+          </svg>
+        </span>
         <span class="brand__text">
           <span class="brand__name">RF AGENCY</span>
           <span class="brand__tag">для стримеров</span>
@@ -361,7 +376,7 @@
     </ul>
     <div class="mobile-menu__footer">
       <a href="#contact" class="btn btn--primary" style="width:100%">Обсудить сотрудничество</a>
-      <a href="https://t.me/rf_agency" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" style="width:100%">Написать в Telegram</a>
+      <a href="https://t.me/RFAgency812" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" style="width:100%">Написать в Telegram</a>
     </div>
   </div>
 
@@ -590,7 +605,7 @@
             <div>
               <h2 class="contact__title">Готов развивать свой канал <span class="text-gradient">вместе с нами?</span></h2>
               <p class="contact__lead">Расскажи немного о своём канале — обсудим возможности сотрудничества.</p>
-              <a href="https://t.me/rf_agency" target="_blank" rel="noopener noreferrer" class="contact__tg-btn">
+              <a href="https://t.me/RFAgency812" target="_blank" rel="noopener noreferrer" class="contact__tg-btn">
                 <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.2 1.3Z"/></svg>
                 Или напиши в Telegram
               </a>
@@ -638,12 +653,12 @@
               <div id="form-success" class="form-success">
                 <span class="form-success__icon">✓</span>
                 <h3 class="form-success__title">Заявка готова к отправке</h3>
-                <p class="form-success__text">Чтобы мы её получили, отправь это сообщение нам в Telegram. Текст уже подготовлен, <b id="success-name"></b>.</p>
+                <p class="form-success__text">Чтобы мы её получили, отправь это сообщение нашему боту в Telegram. Текст уже подготовлен, <b id="success-name"></b>.</p>
                 <textarea id="success-message" class="form-success__textarea" readonly rows="7"></textarea>
                 <div class="form-success__actions">
                   <a href="#" id="tg-send-btn" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="flex:1">
                     <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.2 1.3Z"/></svg>
-                    Отправить в Telegram
+                    Открыть бота
                   </a>
                   <button type="button" id="copy-btn" class="btn btn--ghost" style="flex:1">Скопировать текст</button>
                 </div>
@@ -662,7 +677,18 @@
       <div class="footer__grid">
         <div class="footer__brand">
           <a href="#top" class="brand">
-            <span class="brand__logo text-gradient">RF</span>
+            <span class="brand__logo">
+              <svg viewBox="0 0 100 100" style="width:100%; height:100%;">
+                 <defs>
+                    <linearGradient id="grad2" x1="0" y1="0" x2="1" y2="1">
+                       <stop offset="0%" stop-color="#8b5cf6"/>
+                       <stop offset="100%" stop-color="#22d3ee"/>
+                    </linearGradient>
+                 </defs>
+                 <rect width="100" height="100" fill="#101018"/>
+                 <text x="50" y="65" font-family="Unbounded, sans-serif" font-weight="bold" font-size="36" fill="url(#grad2)" text-anchor="middle">RF</text>
+              </svg>
+            </span>
             <span class="brand__text">
               <span class="brand__name">RF AGENCY</span>
               <span class="brand__tag">для стримеров</span>
@@ -682,9 +708,9 @@
         </nav>
         <div>
           <h3 class="footer__nav-title">Связь</h3>
-          <a href="https://t.me/rf_agency" target="_blank" rel="noopener noreferrer" class="contact__tg-btn" style="margin-top:1rem">
+          <a href="https://t.me/RFAgency812" target="_blank" rel="noopener noreferrer" class="contact__tg-btn" style="margin-top:1rem">
             <svg style="width:16px;height:16px;color:var(--cyan)" viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.6 19 19.3c-.2 1-.8 1.2-1.6.8l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.9.4l.3-4.6L18.6 7c.4-.3-.1-.5-.6-.2L7.7 13.3l-4.4-1.4c-1-.3-1-1 .2-1.4l17.2-6.6c.8-.3 1.5.2 1.2 1.3Z"/></svg>
-            @rf_agency
+            @RFAgency812
           </a>
           <p class="footer__desc" style="max-width:20rem">Напишите нам — ответим и обсудим ваш канал.</p>
         </div>
@@ -807,7 +833,8 @@
           document.getElementById('success-name').textContent = data.name;
           document.getElementById('success-message').value = msg;
           
-          const tgLink = `https://t.me/rf_agency?text=${encodeURIComponent(msg)}`;
+          // Ссылка на бота (теперь ведет на @rf_agency_bot)
+          const tgLink = `https://t.me/rf_agency_bot`;
           document.getElementById('tg-send-btn').href = tgLink;
 
           form.style.display = 'none';
